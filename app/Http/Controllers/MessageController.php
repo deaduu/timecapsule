@@ -8,12 +8,33 @@ use Illuminate\Support\Facades\Crypt;
 
 class MessageController extends Controller
 {
-    public function getdata(Message $message, $token)
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        dd(Crypt::decryptString($message->message . $token));
+        return view('welcome');
     }
 
-    public function savemsg(Request $request)
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
         $msg = new Message;
         $msg->message = Crypt::encryptString($request->message);
@@ -22,14 +43,48 @@ class MessageController extends Controller
         $msg->save();
     }
 
-    public function alldata()
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $message
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Message $message)
     {
-        $data = Message::findOrFail(5);
+        dd(Crypt::decryptString($message->message));
+    }
 
-        $data->token = 112;
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        // dd($id);
+    }
 
-        $data->save();
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
 
-        dd($data);
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }

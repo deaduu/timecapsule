@@ -14,12 +14,6 @@ use App\Http\Controllers\MessageController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'welcome');
 
-Route::post('savemsg', [MessageController::class, 'savemsg']);
-
-Route::get('alldata', [MessageController::class, 'alldata']);
-
-Route::get('/{message}/{token}', [MessageController::class, 'getdata']);
+Route::resource('message', MessageController::class);

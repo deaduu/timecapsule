@@ -591,7 +591,7 @@
         $('#btn').click(()=>{
             var message = CKEDITOR.instances['message'].getData();
             var date = $('#datepicker').val();
-            $.post('/savemsg',{'message':message,'_token':'{{ csrf_token() }}','date': date},(res)=>{
+            $.post('/message',{'message':message,'_token':'{{ csrf_token() }}','date': date},(res)=>{
                 console.log(res);
             });
         });
