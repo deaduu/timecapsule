@@ -15,5 +15,4 @@ use App\Http\Controllers\MessageController;
 */
 
 Route::view('/', 'welcome');
-
 Route::resource('message', MessageController::class);
