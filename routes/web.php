@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\LearnController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,7 @@ use App\Http\Controllers\MessageController;
 
 Route::view('/', 'welcome');
 Route::resource('message', MessageController::class);
+
+
+Route::get('/test', [LearnController::class, 'test']);
+Route::get('/test2', [LearnController::class, 'test2']);
