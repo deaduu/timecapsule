@@ -36,11 +36,25 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        $msg = new Message;
-        $msg->message = Crypt::encryptString($request->message);
-        $msg->token = rand(0, 999);
-        $msg->date = date('Y-m-d', strtotime($request->date));
-        $msg->save();
+        $request->validate([
+            'message'       => 'required',
+            'date'          => 'required',
+            'to_email'      => 'required|email',
+            'from_email'    => 'required|email',
+        ]);
+
+        try {
+            $msg = new Message;
+            $msg->message = Crypt::encryptString($request->message);
+            $msg->token = rand(0, 999);
+            $msg->date = date('Y-m-d', strtotime($request->date));
+            $msg->to_email = $request->to_email;
+            $msg->from_email = $request->from_email;
+            $msg->save();
+
+            return response(['message' => 'success'], 200);
+        } catch (Exceptions $e) {
+        }
     }
 
     /**
