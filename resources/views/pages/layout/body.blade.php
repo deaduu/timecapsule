@@ -29,10 +29,17 @@
             right: 10px;
         }
     </style>
+    @if($page == 'timer')
+    <script>
+        const date = '{{$date}}';
+    </script>
+    @endif
 </head>
 
 <body>
     @yield('body')
+
+    @if(!isset($page))
     <div id="previewbutton">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditModal">
             EDIT
@@ -105,7 +112,7 @@
             </div>
         </div>
     </div>
-
+    @endif
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -116,12 +123,13 @@
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+@if(!isset($page))
 <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 <script>
     CKEDITOR.replace('message');
 
-    
-    
+
+
     $(document).ready(() => {
 
         var message = CKEDITOR.instances['message'].getData();
@@ -135,12 +143,12 @@
             minDate: 0,
         });
 
-        $('#saveChanges').click(() => { 
+        $('#saveChanges').click(() => {
             var message = CKEDITOR.instances['message'].getData();
             $('#messageArea').html(message);
         });
 
-       
+
         $('#detailForm').submit((e) => {
 
             e.preventDefault();
@@ -149,27 +157,42 @@
             var date = $('#datepicker').val();
             var from_email = $('#from_email').val();
             var to_email = $('#to_email').val();
-           
+
             $.ajax({
                 url: '/message',
                 type: 'POST',
                 data: {
-                'message': message,
-                '_token': '{{ csrf_token() }}',
-                'date': date,
-                'from_email': from_email,
-                'to_email': to_email
-            },
-            dataType: "json",
-            success: (response) => {
-            console.log(response);
-            },
-            error: (response) => {
-                console.log(response);
-            }
+                    'message': message,
+                    '_token': '{{ csrf_token() }}',
+                    'date': date,
+                    'from_email': from_email,
+                    'to_email': to_email
+                },
+                dataType: "json",
+                success: (response) => {
+                    window.location.href = `/${response.token}/${response.token_1}/${response.token_2}`;
+                },
+                error: (response) => {
+                    console.log(response);
+                }
             })
         });
     });
 </script>
+@elseif($page == 'index')
+
+<script>
+    $(document).ready(() => {
+
+        var message = `{!! $decryptMessage !!}`;
+
+        $('#messageArea').html(message);
+
+    });
+</script>
+
+
+@endif
+
 
 </html>

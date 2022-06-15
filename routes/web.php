@@ -15,5 +15,7 @@ use App\Http\Controllers\LearnController;
 |
 */
 
-Route::view('/', 'pages.index');
+Route::view('/', 'pages.default.index');
 Route::resource('message', MessageController::class);
+
+Route::get('/{token}/{token_1}/{token_2}', [MessageController::class, 'showMessage']);
