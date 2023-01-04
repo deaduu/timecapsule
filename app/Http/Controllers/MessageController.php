@@ -53,7 +53,7 @@ class MessageController extends Controller
 
         // dd(Crypt::decryptString($encryptString[0][0] . $encryptString[0][1] . $encryptString[1][1] . $encryptString[1][0]));
 
-        $template = 'index';
+        $template = 'default';
 
         try {
             $msg = new Message;
@@ -165,7 +165,8 @@ class MessageController extends Controller
 
 
 
-        if ($getMessage->template != 'index') {
+        if ($getMessage->template != 'default') {
+            //return the custom template 
         }
         return view('pages.default.' . $page, compact('page', 'decryptMessage', 'date'));
     }

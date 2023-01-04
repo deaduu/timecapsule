@@ -73,24 +73,22 @@
                 <img src="{{asset('logo/TimeCapsule-logos_transparent.png')}}" alt="" class="h-16 w-auto text-gray-700 sm:h-20">
             </div>
 
-            <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                <div class="grid">
-                    <div id="messageArea" class="alert alert-success">
-                        <div class="container">
-                            <div class="icon"><i class="fa-solid fa-clock fa-3x"></i></div>
-                            <h1 id="heading">Countdown</h1>
+            <div class="grid">
+                <div id="messageArea" class="alert alert-success">
+                    <div class="container">
+                        <div class="icon"><i class="fa-solid fa-clock fa-3x"></i></div>
+                        <h1 id="heading">Countdown</h1>
 
-                            <div class="output">
-                                <div class="time-labels">
-                                    <p>Days</p>
-                                    <p>Hours</p>
-                                    <p>Mins</p>
-                                    <p>Secs</p>
-                                </div>
-                                <p id="output"></p>
+                        <div class="output">
+                            <div class="time-labels">
+                                <p>Days</p>
+                                <p>Hours</p>
+                                <p>Mins</p>
+                                <p>Secs</p>
                             </div>
-
+                            <p id="output"></p>
                         </div>
+
                     </div>
                 </div>
             </div>

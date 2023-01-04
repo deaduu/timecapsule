@@ -12,11 +12,10 @@
                 <img src="{{asset('logo/TimeCapsule-logos_transparent.png')}}" alt="" class="h-16 w-auto text-gray-700 sm:h-20">
             </div>
 
-            <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                <div class="grid">
-                    <div id="messageArea" class="alert alert-success">
 
-                    </div>
+            <div class="grid">
+                <div id="messageArea" class="alert alert-success">
+
                 </div>
             </div>
 

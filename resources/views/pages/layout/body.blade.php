@@ -29,7 +29,7 @@
             right: 10px;
         }
     </style>
-    @if($page == 'timer')
+    @if(isset($page) AND $page == 'timer')
     <script>
         const date = '{{$date}}';
     </script>
@@ -91,18 +91,23 @@
                 <div class="modal-body">
                     <form action="" method="post" id="detailForm" class="row g-3">
                         <div class="col-md-12">
-                            <label for="from_email" class="form-label">Your Email</label>
+                            <label for="from_email" class="form-label">Your Email Address</label>
                             <input type="email" class="form-control" id="from_email" required>
                         </div>
                         <div class="col-md-12">
-                            <label for="to_email" class="form-label">Email of the one who will receive the
+                            <label for="to_email" class="form-label">Email address of the one who will receive the
                                 message(optional)</label>
                             <input type="email" class="form-control" id="to_email">
                         </div>
 
                         <div class="col-md-12">
-                            <label for="datepicker" class="form-label">The day the message will show</label>
+                            <label for="datepicker" class="form-label">The day the message will deliver</label>
                             <input type="text" id="datepicker" autocomplete="off" class="form-control" required>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="timepicker" class="form-label">and time too.</label>
+                            <input type="time" id="timepicker" autocomplete="off" class="form-control" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
 
