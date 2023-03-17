@@ -63,6 +63,8 @@ class MessageController extends Controller
             $msg->date = date('Y-m-d', strtotime($request->date));
             $msg->to_email = $request->to_email;
             $msg->from_email = $request->from_email;
+            $msg->from_contactno = $request->from_contactno;
+            $msg->to_contactno = $request->to_contactno;
             $msg->save();
 
             return response(['message' => 'success', 'token_1' => $encryptString[0][1], 'token_2' => $encryptString[1][1], 'token' => $token], 200);

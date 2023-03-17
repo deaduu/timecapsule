@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Timecapsule</title>
+    <title>Etimecap</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -63,8 +63,7 @@
 
                         <div class="grid">
                             <textarea class="ckeditor" name="" id="message" cols="30" rows="10">
-                            <p>Hey There,</p>
-                            <p>Enter your message for future you or someone special</p>
+                            <p>Hey There, Enter your message for future you or someone special.</p>
                         </textarea>
                         </div>
 
@@ -90,18 +89,37 @@
                 </div>
                 <div class="modal-body">
                     <form action="" method="post" id="detailForm" class="row g-3">
-                        <div class="col-md-12">
-                            <label for="from_email" class="form-label">Your Email Address</label>
-                            <input type="email" class="form-control" id="from_email" required>
+                        <div class="card">
+                            <label for="">Your Details</label>
+                            <div class="card-body">
+                                <div class="col-md-12">
+                                    <label for="from_email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="from_email" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="from_contactno" class="form-label">Mobile Number(Optional)</label>
+                                    <input type="number" class="form-control" id="from_contactno" required>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-12">
-                            <label for="to_email" class="form-label">Email address of the one who will receive the
-                                message(optional)</label>
-                            <input type="email" class="form-control" id="to_email">
+                        <div class="card">
+                            <label for="">Details of the one who will receive the
+                                message(Optional)</label>
+                            <div class="card-body">
+                                <div class="col-md-12">
+                                    <label for="to_email" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" id="to_email">
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="to_contactno" class="form-label">Mobile Number</label>
+                                    <input type="number" class="form-control" id="to_contactno">
+                                </div>
+                            </div>
                         </div>
 
+
                         <div class="col-md-12">
-                            <label for="datepicker" class="form-label">The day the message will deliver</label>
+                            <label for="datepicker" class="form-label">The day the message will show/deliver</label>
                             <input type="text" id="datepicker" autocomplete="off" class="form-control" required>
                         </div>
 

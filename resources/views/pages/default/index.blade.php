@@ -1,29 +1,22 @@
 @extends('pages.layout.body')
 
 @section('body')
+<style>
+    body {
+        height: calc(100vh - 8em);
+        padding: 4em;
+        background-color: rgb(25, 25, 25);
+    }
 
-<div class="antialiased">
-
-    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-
-        <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-            <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-
-                <img src="{{asset('logo/TimeCapsule-logos_transparent.png')}}" alt="" class="h-16 w-auto text-gray-700 sm:h-20">
-            </div>
-
-
-            <div class="grid">
-                <div id="messageArea" class="alert alert-success">
-
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-
-</div>
+    .line-1 {
+        color: rgba(255, 255, 255, .75);
+        font-family: 'Anonymous Pro', monospace;
+        position: relative;
+        top: 50%;
+        margin: 0 auto;
+        text-align: center;
+    }
+</style>
+<p class="line-1 anim-typewriter" id="messageArea"></p>
 
 @endsection
